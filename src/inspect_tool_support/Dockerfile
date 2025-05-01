@@ -10,7 +10,7 @@ FROM python:3.12-bookworm
 # Install pipx to manage Python applications in isolated environments and add
 # its installation directory to PATH
 RUN pip install --root-user-action=ignore pipx
-ENV PATH="/root/.local/bin:$PATH"
+ENV PATH="$PATH:/root/.local/bin"
 
 RUN pipx install inspect-tool-support && \
     inspect-tool-support post-install
