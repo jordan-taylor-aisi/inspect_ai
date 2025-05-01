@@ -7,7 +7,9 @@ def post_install(no_web_browser: bool | None) -> None:
 
 
 def _install_playwright() -> None:
-    subprocess.run(["playwright", "install", "--with-deps", "chromium"], check=True)
+    subprocess.run(
+        ["python", "-m", "playwright", "install", "--with-deps", "chromium"], check=True
+    )
     print("Successfully ran 'playwright install'")
-    subprocess.run(["playwright", "install-deps"], check=True)
+    subprocess.run(["python", "-m", "playwright", "install-deps"], check=True)
     print("Successfully ran 'playwright install-deps'")
